@@ -2,13 +2,14 @@ package br.fundatec.lp3.designpatterns.builder;
 
 import java.util.Scanner;
 
+import br.fundatec.lp3.designpatterns.builder.pizza.Pizza;
+import br.fundatec.lp3.designpatterns.builder.pizza.PizzaCustomizada;
+
 public class App {
 
     public static void main( String[] args ) {
 
     	try(Scanner scanner = new Scanner(System.in)) {
-
-	        System.out.println("|--jokenpo--|");
 
             System.out.println("> MENU:");
             System.out.println("> ESCOLHA O TAMANHO:");
@@ -34,7 +35,7 @@ public class App {
             System.out.println("> ESCOLHA A MASSA:");
             System.out.println(">| 1 - Fina");
             System.out.println(">| 2 - Grossa");
-            Sabor Borda = Sabor.getByVal(scanner.nextInt());
+            Massa massa = Massa.getByVal(scanner.nextInt());
 
             System.out.println("> BORDA RECHEADA?");
             System.out.println(">| 1 - Sim");
@@ -42,11 +43,19 @@ public class App {
 
             int opBordaRecheada = scanner.nextInt();
 
-            if(opBordaRecheada != 1 || opBordaRecheada != 2) {
+            if(opBordaRecheada != 1 && opBordaRecheada != 2) {
             	throw new Exception("Opção de borda não encontrada");
             }
 
             boolean bordaRecheada = opBordaRecheada == 1 ? true : false;
+
+            Pizza pizza = PizzaCustomizada.builder()
+            				.comTamanho(tamanho)
+            				.comPrimeiroSabor(primeiroSabor)
+            				.comSegundoSabor(segundoSabor)
+            				.comBordaRecheada(bordaRecheada)
+            				.comMassa(massa)
+            				.build();
 
     	} catch(Exception e) {
     		System.out.println("Opção inválida: ");

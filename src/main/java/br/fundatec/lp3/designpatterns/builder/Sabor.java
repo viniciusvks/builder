@@ -2,10 +2,20 @@ package br.fundatec.lp3.designpatterns.builder;
 
 public enum Sabor {
 
-	CALABRESA,
-	_4QUEIJOS,
-	BACON,
-	MARGUERITA;
+	CALABRESA("Calabresa"),
+	_4QUEIJOS("4 Queijos"),
+	BACON("Bacon"),
+	MARGUERITA("Marguerita");
+
+	private String titulo;
+
+	Sabor(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
 
 	public static Sabor getByVal(int i) throws Exception {
 
