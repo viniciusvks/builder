@@ -63,7 +63,7 @@ public class App {
             pizza.embalar();
 
     	} catch(Exception e) {
-    		System.out.println("Opção inválida: ");
+    		System.out.println("Opção inválida: " + e.getMessage());
     	}
     }
 

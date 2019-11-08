@@ -53,23 +53,23 @@ public class PizzaPersonalizada extends Pizza {
 
 		public Pizza build() throws Exception {
 
-			if(tamanho == null) {
+			if(pizza.tamanho == null) {
 				throw new Exception("Pizza inválida: tamanho não informado");				
 			}
 			
-			if(primeiroSabor == null) {
+			if(pizza.primeiroSabor == null) {
 				throw new Exception("Pizza inválida: primeiro sabor não informado");				
 			}
 			
-			if(segundoSabor == null) {
+			if(pizza.segundoSabor == null) {
 				throw new Exception("Pizza inválida: segundo sabor não informado");				
 			}
 			
-			if(massa == null) {
+			if(pizza.massa == null) {
 				throw new Exception("Pizza inválida: massa não informada");				
 			}
 			
-			if(bordaRecheada == null) {
+			if(pizza.bordaRecheada == null) {
 				throw new Exception("Pizza inválida: borda recheada não informada");				
 			}
 			
