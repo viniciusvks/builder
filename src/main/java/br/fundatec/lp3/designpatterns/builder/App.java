@@ -3,7 +3,7 @@ package br.fundatec.lp3.designpatterns.builder;
 import java.util.Scanner;
 
 import br.fundatec.lp3.designpatterns.builder.pizza.Pizza;
-import br.fundatec.lp3.designpatterns.builder.pizza.PizzaCustomizada;
+import br.fundatec.lp3.designpatterns.builder.pizza.PizzaPersonalizada;
 
 public class App {
 
@@ -47,15 +47,20 @@ public class App {
             	throw new Exception("Opção de borda não encontrada");
             }
 
-            boolean bordaRecheada = opBordaRecheada == 1 ? true : false;
+            boolean bordaRecheada = opBordaRecheada == 1 ? true : false;           
 
-            Pizza pizza = PizzaCustomizada.builder()
+            Pizza pizza = PizzaPersonalizada.builder()
             				.comTamanho(tamanho)
             				.comPrimeiroSabor(primeiroSabor)
             				.comSegundoSabor(segundoSabor)
             				.comBordaRecheada(bordaRecheada)
             				.comMassa(massa)
             				.build();
+            
+            pizza.preparar();
+            pizza.cozinhar();
+            pizza.cortar();
+            pizza.embalar();
 
     	} catch(Exception e) {
     		System.out.println("Opção inválida: ");

@@ -4,26 +4,26 @@ import br.fundatec.lp3.designpatterns.builder.Massa;
 import br.fundatec.lp3.designpatterns.builder.Sabor;
 import br.fundatec.lp3.designpatterns.builder.Tamanho;
 
-public class PizzaCustomizada extends Pizza {
+public class PizzaPersonalizada extends Pizza {
 
 	private Tamanho tamanho;
 	private Sabor primeiroSabor;
 	private Sabor segundoSabor;
 	private Massa massa;
-	private boolean bordaRecheada;
+	private Boolean bordaRecheada;
 
-	private PizzaCustomizada() {}
+	private PizzaPersonalizada() {}
 
 	public static Builder builder() {
-		return new PizzaCustomizada().new Builder();
+		return new PizzaPersonalizada().new Builder();
 	}
 
 	public class Builder {
 
-		private PizzaCustomizada pizza;
+		private PizzaPersonalizada pizza;
 
 		Builder() {
-			this.pizza = new PizzaCustomizada();
+			this.pizza = new PizzaPersonalizada();
 		}
 
 		public Builder comTamanho(Tamanho tamanho) {
@@ -51,14 +51,30 @@ public class PizzaCustomizada extends Pizza {
 			return this;
 		}
 
-		public Pizza build() {
+		public Pizza build() throws Exception {
 
-			pizza.preparar();
-			pizza.cozinhar();
-			pizza.cortar();
-			pizza.embalar();
-
+			if(tamanho == null) {
+				throw new Exception("Pizza inválida: tamanho não informado");				
+			}
+			
+			if(primeiroSabor == null) {
+				throw new Exception("Pizza inválida: primeiro sabor não informado");				
+			}
+			
+			if(segundoSabor == null) {
+				throw new Exception("Pizza inválida: segundo sabor não informado");				
+			}
+			
+			if(massa == null) {
+				throw new Exception("Pizza inválida: massa não informada");				
+			}
+			
+			if(bordaRecheada == null) {
+				throw new Exception("Pizza inválida: borda recheada não informada");				
+			}
+			
 			return pizza;
+			
 		}
 
 	}
