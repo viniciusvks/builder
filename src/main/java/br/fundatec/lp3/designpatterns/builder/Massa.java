@@ -15,17 +15,4 @@ public enum Massa {
 		return this.titulo;
 	}
 
-	public static Massa getByVal(int i) throws Exception {
-
-		switch(i) {
-			case 1:
-				return FINA;
-			case 2:
-				return GROSSA;
-			default:
-				throw new Exception("Massa não encontrado");
-		}
-
-	}
-
 }
